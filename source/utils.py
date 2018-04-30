@@ -1,8 +1,16 @@
 import sys
+import os
 import numpy as np
 import parseTrackletXML as xmlParser
 from scipy.spatial import Delaunay
 
+def mkdir_p(path):
+    try:
+        os.makedirs(path)
+    except OSError as exc: # Python >2.5
+        if os.path.isdir(path):
+            pass
+        else: raise
 
 def point_inside(rectangle, point):
     firstcorner, secondcorner = rectangle
